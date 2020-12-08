@@ -4,10 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.camunda.demo.springboot</groupId>
+    <groupId>com.camunda.springboot.demo</groupId>
     <artifactId>Cashier</artifactId>
     <version>1.0-SNAPSHOT</version>
-
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -17,9 +16,9 @@
     <properties>
 
         <!-- enable this for the Community Edition -->
-        <camunda.version>7.10.0-ee</camunda.version>
+        <!--        <camunda.version>7.14.2</camunda.version>-->
         <!-- enable this for the Enterprise Edition -->
-        <!--    <camunda.version>7.10.0-ee</camunda.version>-->
+        <camunda.version>7.14.2-ee</camunda.version>
 
         <camundaSpringBoot.version>3.2.0</camundaSpringBoot.version>
         <springBoot.version>2.3.2.RELEASE</springBoot.version>
@@ -32,7 +31,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
         <!-- EXAMPLE:  ADDED FOR SPRING CLOUD STREAM -->
-<!--        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>-->
+        <!--        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>-->
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
     </properties>
 
@@ -74,16 +73,14 @@
         <dependency>
             <groupId>org.camunda.bpm.springboot</groupId>
             <!-- enable this for the Community Edition -->
-            <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>
+            <!--            <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>-->
             <!-- enable this for the Enterprise Edition -->
-            <!--      <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>-->
-            <version>${camundaSpringBoot.version}</version>
+            <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.camunda.bpm.springboot</groupId>
             <artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
-            <version>${camundaSpringBoot.version}</version>
         </dependency>
 
         <dependency>
@@ -226,32 +223,11 @@
         </repository>
 
     </repositories>
-
     <build>
-        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${springBoot.version}</version>
-                <configuration>
-                    <layout>ZIP</layout>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
-                <configuration>
-                    <mainClass>com.camunda.example.CamundaApplication</mainClass>
-                </configuration>
             </plugin>
         </plugins>
     </build>

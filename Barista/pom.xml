@@ -16,9 +16,9 @@
     <properties>
 
         <!-- enable this for the Community Edition -->
-        <camunda.version>7.10.0-ee</camunda.version>
+        <!--        <camunda.version>7.14.2</camunda.version>-->
         <!-- enable this for the Enterprise Edition -->
-        <!--    <camunda.version>7.10.0-ee</camunda.version>-->
+        <camunda.version>7.14.2-ee</camunda.version>
 
         <camundaSpringBoot.version>3.2.0</camundaSpringBoot.version>
         <springBoot.version>2.3.2.RELEASE</springBoot.version>
@@ -73,16 +73,14 @@
         <dependency>
             <groupId>org.camunda.bpm.springboot</groupId>
             <!-- enable this for the Community Edition -->
-            <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>
+            <!--            <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>-->
             <!-- enable this for the Enterprise Edition -->
-            <!--      <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>-->
-            <version>${camundaSpringBoot.version}</version>
+            <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.camunda.bpm.springboot</groupId>
             <artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
-            <version>${camundaSpringBoot.version}</version>
         </dependency>
 
         <dependency>
@@ -225,32 +223,11 @@
         </repository>
 
     </repositories>
-
     <build>
-        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${springBoot.version}</version>
-                <configuration>
-                    <layout>ZIP</layout>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
-                <configuration>
-                    <mainClass>com.camunda.example.CamundaApplication</mainClass>
-                </configuration>
             </plugin>
         </plugins>
     </build>
