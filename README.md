@@ -1,4 +1,4 @@
-# Coffee and Kuchen
+# Kaffee and Kuchen
 Spring Boot Application using [Camunda](http://docs.camunda.org).
 
 ## Show me the important parts!
